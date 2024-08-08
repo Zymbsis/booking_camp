@@ -1,0 +1,23 @@
+.heartCheckbox {
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+}
+
+.heartIcon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  fill: var(--total-white);
+  stroke: var(--midnight-navy);
+  pointer-events: none;
+  transition: all 300ms linear;
+}
+
+.active {
+  fill: var(--cherry-red);
+  stroke: var(--cherry-red);
+}

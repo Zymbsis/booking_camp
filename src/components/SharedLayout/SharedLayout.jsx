@@ -1,10 +1,13 @@
 import { Suspense } from 'react';
-import SideBar from '../SideBar/SideBar';
+
+import Header from '../SideBar/SideBar';
+
 
 const SharedLayout = ({ children }) => {
+
   return (
     <main>
-      <SideBar />
+      {/* <Header /> */}
       <Suspense> {children}</Suspense>
     </main>
   );

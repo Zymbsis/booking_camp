@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router-dom';
 
-const SideBar = () => {
+const Header = () => {
   return (
-    <div>
+    <header>
       <NavLink to='/'>Home Page</NavLink>
       <NavLink to='/favorites'>Favorites Page</NavLink>
       <NavLink to='/catalog'>Catalog Page</NavLink>
-    </div>
+    </header>
   );
 };
 
-export default SideBar;
+export default Header;

@@ -1,0 +1,19 @@
+.feature {
+  padding: 12px 18px;
+  border-radius: 100px;
+  background-color: var(--cloud-white);
+  display: flex;
+  gap: 8px;
+  width: fit-content;
+}
+
+.feature > svg {
+  width: 20px;
+  height: 20px;
+}
+
+.feature > span {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+}

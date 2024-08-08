@@ -1,0 +1,36 @@
+.wrapper {
+  width: 888px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+}
+
+.camperList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.camperItem {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  border: 1px solid rgba(16, 24, 40, 0.20);
+  border-radius: 20px;
+  background-color: inherit;
+}
+
+.loadMoreButton {
+  padding-left: 32px;
+  padding-right: 32px;
+  background-color: var(--total-white);
+  border: 1px solid rgba(71, 84, 103, 0.20);
+  color: var(--midnight-navy);
+  transition: all 300ms ease;
+}
+
+.loadMoreButton:hover {
+  border-color: var(--crimson-red);
+  background-color: var(--total-white);
+}
