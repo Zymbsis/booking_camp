@@ -1,13 +1,12 @@
-import img from '../images/test.webp';
-
+import Container from '../components/shared/Container/Container';
+import Section from '../components/shared/Section/Section';
+// import img from '../images/test.webp';
+import css from './HomePage.module.css';
 const HomePage = () => {
   return (
-    <div>
-      <img
-        style={{ height: 'auto ', width: '1440', margin: '0 auto' }}
-        src={img}
-      />
-    </div>
+    <Section className={css.section}>
+      <div className={css.container}></div>
+    </Section>
   );
 };
 

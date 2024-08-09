@@ -1,11 +1,12 @@
-import css from './Container.module.css'
+import clsx from 'clsx';
+import css from './Container.module.css';
 
-const Container = ({children}) => {
+const Container = ({ children, className }) => {
   return (
-    <div className={css.container}>
+    <div className={clsx(css.container, { [className]: className })}>
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default Container
+export default Container;

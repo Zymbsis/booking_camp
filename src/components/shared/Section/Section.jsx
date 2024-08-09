@@ -1,11 +1,12 @@
-import css from './Section.module.css'
+import clsx from 'clsx';
+import css from './Section.module.css';
 
-const Section = ({children}) => {
+const Section = ({ children, className }) => {
   return (
-    <section className={css.section}>
+    <section className={clsx(css.section, { [className]: className })}>
       {children}
     </section>
-  )
-}
+  );
+};
 
-export default Section
+export default Section;
