@@ -1,11 +1,7 @@
 .loadMoreButton {
-  height: 56px;
-  width: 166px;
-  padding: 16px 32px;
-  border-radius: 200px;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.05em;
+  width: 145px;
+  padding-left: 32px;
+  padding-right: 32px;
   background-color: var(--total-white);
   border: 1px solid rgba(71, 84, 103, 0.20);
   color: var(--midnight-navy);
@@ -14,4 +10,15 @@
 
 .loadMoreButton:hover {
   border-color: var(--crimson-red);
+  background-color: var(--total-white);
+}
+
+.allResults {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--cherry-red);
+  text-decoration-thickness: 2px;
 }

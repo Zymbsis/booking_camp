@@ -1,14 +1,16 @@
 import FilterBar from '../components/FilterBar/FilterBar';
-import Container from '../components/shared/Container/Container';
-import Section from '../components/shared/Section/Section';
-import CatalogCampersSection from '../components/CatalogCampersSection/CatalogCampersSection';
+
+import Section from '../components/shared/Section';
+import Container from '../components/shared/Container';
+
+import AllCamperList from '../components/AllCamperList/AllCamperList';
 
 const CatalogPage = () => {
   return (
     <Section>
       <Container>
         <FilterBar />
-        <CatalogCampersSection />
+        <AllCamperList />
       </Container>
     </Section>
   );

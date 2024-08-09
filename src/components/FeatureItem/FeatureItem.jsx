@@ -1,12 +1,12 @@
-import Icon from '../shared/Icon/Icon';
+import Icon from '../shared/Icon';
 import css from './FeatureItem.module.css';
 
-const FeatureItem = ({ iconId, label }) => {
+const FeatureItem = ({ iconId, children }) => {
   return (
-    <li className={css.feature}>
+    <>
       <Icon iconId={iconId} />
-      <span>{label}</span>
-    </li>
+      <span>{children}</span>
+    </>
   );
 };
 

@@ -1,18 +1,19 @@
 import { useSelector } from 'react-redux';
 import css from './LoadMoreButton.module.css';
 import { selectHasNextPage } from '../../redux/campers/selectors';
+import Button from '../shared/Button';
 
 const LoadMoreButton = ({ onClick }) => {
   const hasNextPage = useSelector(selectHasNextPage);
 
   return hasNextPage ? (
-    <button
+    <Button
       className={css.loadMoreButton}
       onClick={onClick}>
       Load More
-    </button>
+    </Button>
   ) : (
-    <p>It`s all result</p>
+    <p className={css.allResults}>Here are all the search results</p>
   );
 };
 

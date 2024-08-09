@@ -1,11 +1,13 @@
-import FeatureList from '../FeatureList/FeatureList';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import MetaInfo from '../MetaInfo/MetaInfo';
-import Button from '../shared/Button/Button';
 import css from './CamperItem.module.css';
 import ImageCard from '../ImageCard/ImageCard';
+import Button from '../shared/Button';
+import CamperTitle from '../shared/CamperTitle';
+import CamperPrice from '../shared/CamperPrice';
+import PageFeatureList from '../FeatureList/PageFeatureList';
 
-const CamperItem = ({ item }) => {
+const CamperItem = ({ item, onClick }) => {
   const featuresList = {
     adults: item.adults,
     transmission: item.transmission,
@@ -24,9 +26,9 @@ const CamperItem = ({ item }) => {
       <div className={css.textWrapper}>
         <div>
           <div className={css.titleWrapper}>
-            <h2>{item.name}</h2>
+            <CamperTitle>{item.name}</CamperTitle>
             <div className={css.priceWrapper}>
-              <span>&euro;{item.price}.00</span>
+              <CamperPrice>{item.price}</CamperPrice>
               <FavoriteButton id={item.id} />
             </div>
           </div>
@@ -39,8 +41,16 @@ const CamperItem = ({ item }) => {
         <p className={css.supportingText}>
           The pictures shown here are example vehicles of the respective.
         </p>
-        <FeatureList features={featuresList} />
-        <Button>Show more</Button>
+        <PageFeatureList
+          features={featuresList}
+          item={item}
+        />
+        <Button
+          onClick={() => {
+            onClick(item);
+          }}>
+          Show more
+        </Button>
       </div>
     </>
   );

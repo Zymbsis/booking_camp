@@ -1,26 +1,14 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCamperById } from '../redux/campers/operations';
-import { selectFavoritesId } from '../redux/campers/selectors';
-import Section from '../components/shared/Section/Section';
-import Container from '../components/shared/Container/Container';
 import FilterBar from '../components/FilterBar/FilterBar';
-import FavoriteCampersSection from '../components/FavoriteCampersSection/FavoriteCampersSection';
+import Section from '../components/shared/Section';
+import Container from '../components/shared/Container';
+import FavoriteCamperList from '../components/FavoriteCamperList/FavoriteCamperList';
 
 const FavoritesPage = () => {
-  const dispatch = useDispatch();
-  const favoritesId = useSelector(selectFavoritesId);
-  useEffect(() => {
-    favoritesId.forEach((item) => {
-      dispatch(getCamperById(item));
-    });
-  }, [dispatch, favoritesId]);
-
   return (
     <Section>
       <Container>
         <FilterBar />
-        <FavoriteCampersSection />
+        <FavoriteCamperList />
       </Container>
     </Section>
   );

@@ -5,6 +5,7 @@ const camperSlice = createSlice({
   name: 'campers',
   initialState: {
     campers: [],
+    page: 1,
     hasNextPage: true,
     favoritesId: [],
     favoritesList: [],
@@ -20,6 +21,9 @@ const camperSlice = createSlice({
       state.favoritesList = state.favoritesList.filter(
         (item) => item.id !== action.payload,
       );
+    },
+    increasePage: (state) => {
+      state.page = state.page + 1;
     },
   },
   extraReducers: (builder) =>
@@ -39,4 +43,5 @@ const camperSlice = createSlice({
 });
 
 export const campersReducer = camperSlice.reducer;
-export const { addToFavorite, deleteFromFavorite } = camperSlice.actions;
+export const { addToFavorite, deleteFromFavorite, increasePage } =
+  camperSlice.actions;

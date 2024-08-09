@@ -1,17 +1,10 @@
 .imgWrapper {
-  position: relative;
-  border-radius: 10px;
   width: 290px;
   height: 310px;
-  overflow: hidden;
 }
 
 .imgWrapper > img {
-  height: 100%;
   border-radius: 10px;
-  width: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 100%;
+  object-fit: cover;
 }

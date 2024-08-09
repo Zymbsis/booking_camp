@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorite, deleteFromFavorite } from '../../redux/campers/slice';
 import { selectFavoritesId } from '../../redux/campers/selectors';
-import Icon from '../shared/Icon/Icon';
 import { clsx } from 'clsx';
 import css from './FavoriteButton.module.css';
+import Icon from '../shared/Icon';
 
 const FavoriteButton = ({ id }) => {
   const dispatch = useDispatch();
