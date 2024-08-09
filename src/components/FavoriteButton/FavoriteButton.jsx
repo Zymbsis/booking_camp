@@ -1,25 +1,25 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorite, deleteFromFavorite } from '../../redux/campers/slice';
-import { selectFavoritesList } from '../../redux/campers/selectors';
+import { selectFavoritesId } from '../../redux/campers/selectors';
 import Icon from '../shared/Icon/Icon';
 import { clsx } from 'clsx';
 import css from './FavoriteButton.module.css';
 
-const FavoriteButton = ({ _id }) => {
+const FavoriteButton = ({ id }) => {
   const dispatch = useDispatch();
-  const favoritesList = useSelector(selectFavoritesList);
+  const favoritesId = useSelector(selectFavoritesId);
 
   const [isChecked, setIsChecked] = useState(() =>
-    favoritesList.some((item) => item === _id),
+    favoritesId.some((item) => item === id),
   );
 
   const handleChange = ({ target: { checked } }) => {
     setIsChecked(checked);
     if (checked) {
-      dispatch(addToFavorite(_id));
+      dispatch(addToFavorite(id));
     } else {
-      dispatch(deleteFromFavorite(_id));
+      dispatch(deleteFromFavorite(id));
     }
   };
 

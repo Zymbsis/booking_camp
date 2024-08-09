@@ -27,7 +27,7 @@ const CamperItem = ({ item }) => {
             <h2>{item.name}</h2>
             <div className={css.priceWrapper}>
               <span>&euro;{item.price}.00</span>
-              <FavoriteButton _id={item._id} />
+              <FavoriteButton id={item.id} />
             </div>
           </div>
           <MetaInfo

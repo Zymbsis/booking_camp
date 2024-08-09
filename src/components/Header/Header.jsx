@@ -4,8 +4,8 @@ const Header = () => {
   return (
     <header>
       <NavLink to='/'>Home Page</NavLink>
-      <NavLink to='/favorites'>Favorites Page</NavLink>
       <NavLink to='/catalog'>Catalog Page</NavLink>
+      <NavLink to='/favorites'>Favorites Page</NavLink>
     </header>
   );
 };

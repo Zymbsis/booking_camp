@@ -12,7 +12,22 @@ export const getCamperList = createAsyncThunk(
       const { data } = await instance.get('/adverts', {
         params: { page, limit },
       });
+      const { data: checkNextPage } = await instance.get('/adverts', {
+        params: { page: page + 1, limit },
+      });
+      const hasNextPage = Boolean(checkNextPage.length);
+      return { data, hasNextPage };
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  },
+);
 
+export const getCamperById = createAsyncThunk(
+  'campers/getCamperById',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await instance.get(`/adverts/${id}`);
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error);
