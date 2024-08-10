@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { modalContext } from './index';
+import { modalContext } from 'helpers';
 import { createPortal } from 'react-dom';
 import ModalBackdrop from '../ModalBackdrop/ModalBackdrop';
 

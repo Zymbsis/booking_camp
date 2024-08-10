@@ -18,7 +18,7 @@ export default defineConfig({
       pages: '/src/pages',
       '@redux': '/src/redux',
       services: '/src/services',
-      shared: '/src/shared',
+      shared: '/src/components/shared',
       modules: '/src/modules',
       styles: '/src/styles',
       utils: '/src/utils',

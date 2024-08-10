@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import css from './LoadMoreButton.module.css';
 import { selectHasNextPage } from '../../redux/campers/selectors';
-import Button from '../shared/Button';
+import { Button } from 'shared';
 
 const LoadMoreButton = ({ onClick }) => {
   const hasNextPage = useSelector(selectHasNextPage);

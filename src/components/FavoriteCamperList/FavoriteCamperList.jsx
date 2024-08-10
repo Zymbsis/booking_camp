@@ -7,9 +7,9 @@ import {
 import CamperItem from '../CamperItem/CamperItem';
 import { useEffect } from 'react';
 import { getCamperById } from '../../redux/campers/operations';
-import { useModal } from '../ModalProvider';
+import { useModal } from 'helpers';
 
-import CamperModal from '../CamperModal/CamperModal';
+import CamperCard from '../modal/CamperCard/CamperCard';
 
 const FavoriteCamperList = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const FavoriteCamperList = () => {
   const favoriteList = useSelector(selectFavoritesList);
   const favoritesId = useSelector(selectFavoritesId);
   const handleShowMore = (item) => {
-    openModal(<CamperModal item={item} />);
+    openModal(<CamperCard item={item} />);
   };
 
   useEffect(() => {

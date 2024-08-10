@@ -1,5 +1,4 @@
-import Container from '../components/shared/Container';
-import Section from '../components/shared/Section';
+import {Container,Section} from 'shared';
 import css from './HomePage.module.css';
 
 const HomePage = () => {

@@ -1,0 +1,12 @@
+.reviews {
+  width: calc((100% - 24px) / 2);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

@@ -4,7 +4,7 @@ import { addToFavorite, deleteFromFavorite } from '../../redux/campers/slice';
 import { selectFavoritesId } from '../../redux/campers/selectors';
 import { clsx } from 'clsx';
 import css from './FavoriteButton.module.css';
-import Icon from '../shared/Icon';
+import { Icon } from 'shared';
 
 const FavoriteButton = ({ id }) => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react';
-import { useModal } from '../ModalProvider';
-import Icon from '../shared/Icon';
+import { useModal } from 'helpers';
+import { Icon } from 'shared';
 import css from './ModalBackdrop.module.css';
 
 const ModalBackdrop = ({ children }) => {

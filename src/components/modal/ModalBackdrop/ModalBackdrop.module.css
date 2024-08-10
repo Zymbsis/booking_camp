@@ -16,6 +16,7 @@
   background-color: var(--total-white);
   border-radius: 20px;
   padding: 40px;
+  padding-right: 16px;
   margin: 0 auto;
 }
 

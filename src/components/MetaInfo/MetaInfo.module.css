@@ -20,6 +20,8 @@
 .metaInfoWrapper > span:first-child > svg {
   width: 16px;
   height: 16px;
+  stroke: #FFC531;
+  fill: #FFC531;
 }
 
 .metaInfoWrapper > span:last-child > svg {

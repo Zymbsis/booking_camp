@@ -1,5 +1,5 @@
+import { Icon } from 'shared';
 import clsx from 'clsx';
-import Icon from '../shared/Icon';
 import css from './MetaInfo.module.css';
 
 const MetaInfo = ({ rating, reviews, location, className }) => {
@@ -11,7 +11,7 @@ const MetaInfo = ({ rating, reviews, location, className }) => {
       </span>
       <span>
         <Icon iconId='icon-location' />
-        {location}
+        {location.split(',').reverse().join(', ')}
       </span>
     </div>
   );

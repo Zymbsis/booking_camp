@@ -6,9 +6,9 @@ import { selectCamperList, selectPage } from '../../redux/campers/selectors';
 import { getCamperList } from '../../redux/campers/operations';
 import { useEffect } from 'react';
 import { increasePage } from '../../redux/campers/slice';
-import { useModal } from '../ModalProvider';
+import { useModal } from 'helpers';
 
-import CamperModal from '../CamperModal/CamperModal';
+import CamperCard from '../modal/CamperCard/CamperCard';
 
 const AllCamperList = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const AllCamperList = () => {
   };
 
   const handleShowMore = (item) => {
-    openModal(<CamperModal item={item} />);
+    openModal(<CamperCard item={item} />);
   };
 
   useEffect(() => {

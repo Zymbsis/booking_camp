@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import css from './Header.module.css';
-import Container from '../shared/Container';
+
 import clsx from 'clsx';
 
 const getNavLinkClass = ({ isActive }) =>

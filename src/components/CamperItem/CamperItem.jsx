@@ -2,49 +2,38 @@ import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import MetaInfo from '../MetaInfo/MetaInfo';
 import css from './CamperItem.module.css';
 import ImageCard from '../ImageCard/ImageCard';
-import Button from '../shared/Button';
+import { Button } from 'shared';
 import CamperTitle from '../shared/CamperTitle';
 import CamperPrice from '../shared/CamperPrice';
-import PageFeatureList from '../FeatureList/PageFeatureList';
+import PageFeaturesList from '../PageFeaturesList/PageFeaturesList';
 
 const CamperItem = ({ item, onClick }) => {
-  const featuresList = {
-    adults: item.adults,
-    transmission: item.transmission,
-    engine: item.engine,
-    kitchen: item.details.kitchen,
-    beds: item.details.beds,
-    airConditioner: item.details.airConditioner,
-  };
-
+  const { name, price, id, rating, reviews, location, gallery } = item;
   return (
     <>
       <ImageCard
-        img={item.gallery[0]}
-        name={item.name}
+        img={gallery[0]}
+        name={name}
       />
       <div className={css.textWrapper}>
         <div>
           <div className={css.titleWrapper}>
-            <CamperTitle>{item.name}</CamperTitle>
+            <CamperTitle>{name}</CamperTitle>
             <div className={css.priceWrapper}>
-              <CamperPrice>{item.price}</CamperPrice>
-              <FavoriteButton id={item.id} />
+              <CamperPrice>{price}</CamperPrice>
+              <FavoriteButton id={id} />
             </div>
           </div>
           <MetaInfo
-            rating={item.rating}
-            reviews={item.reviews}
-            location={item.location}
+            rating={rating}
+            reviews={reviews}
+            location={location}
           />
         </div>
         <p className={css.supportingText}>
           The pictures shown here are example vehicles of the respective.
         </p>
-        <PageFeatureList
-          features={featuresList}
-          item={item}
-        />
+        <PageFeaturesList item={item} />
         <Button
           onClick={() => {
             onClick(item);
