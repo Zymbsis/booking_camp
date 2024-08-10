@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from './transformString';
+import { capitalizeFirstLetter } from './formatString';
 
 const optionsForModalFeaturesList = {
   adults: 'adults',

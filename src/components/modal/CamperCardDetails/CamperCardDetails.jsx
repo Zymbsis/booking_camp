@@ -34,7 +34,7 @@ const CamperCardDetails = ({ item, handleToggleContent, showFeatures }) => {
         ) : (
           <Reviews reviews={item.reviews} />
         )}
-        <Form />
+        <Form id={item.id} />
       </div>
     </>
   );

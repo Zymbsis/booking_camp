@@ -1,5 +1,5 @@
 .reviews {
-  width: calc((100% - 24px) / 2);
+  width: 430px;
   display: flex;
   flex-direction: column;
   gap: 24px;

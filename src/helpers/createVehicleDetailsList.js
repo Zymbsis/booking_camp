@@ -2,7 +2,7 @@ import {
   addSpaceBeforeUnit,
   camelCaseToSentenceCase,
   capitalizeFirstLetter,
-} from './transformString';
+} from './formatString';
 
 const optionsForVehicleDetailsList = {
   form: 'form',
