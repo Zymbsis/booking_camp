@@ -1,13 +1,13 @@
 .filterBar {
   width: 360px;
-}
-
-.homePageFilterBar {
-  display: none;
+  height: 100%;
+  position: sticky;
+  top: 0;
 }
 
 .form {
   width: 100%;
+  padding-top: 80px;
   display: flex;
   flex-direction: column;
 }
