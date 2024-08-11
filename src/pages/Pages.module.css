@@ -1,5 +1,5 @@
 .homePageSection {
-  background-image: image-set('background_webp.webp', 'background_png.png');
+  background-image: image-set('/background_webp.webp', '/background_png.png');
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
