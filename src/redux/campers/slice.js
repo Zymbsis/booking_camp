@@ -1,11 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCamperById, getCamperByIds, getCamperList } from './operations';
+import {
+  getCamperById,
+  getCamperByIds,
+  getCamperList,
+  getInitialCamperList,
+} from './operations';
 
 const camperSlice = createSlice({
   name: 'campers',
   initialState: {
     campers: [],
-    page: 1,
+    params: { page: 1, limit: 4, form: '' },
     isLoading: false,
     hasNextPage: true,
     favoritesId: [],
@@ -20,6 +25,9 @@ const camperSlice = createSlice({
         (item) => item.id !== action.payload,
       );
     },
+    changeParams: (state, action) => {
+      state.params.form = action.payload;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -27,7 +35,7 @@ const camperSlice = createSlice({
         state.isLoading = false;
         state.campers = [...state.campers, ...action.payload.data];
         state.hasNextPage = action.payload.hasNextPage;
-        state.page = state.page + 1;
+        state.params.page = state.params.page + 1;
       })
       .addCase(getCamperList.pending, (state) => {
         state.isLoading = true;
@@ -48,8 +56,20 @@ const camperSlice = createSlice({
       })
       .addCase(getCamperByIds.rejected, (state) => {
         state.isLoading = false;
+      })
+      .addCase(getInitialCamperList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.campers = action.payload.data;
+        state.hasNextPage = action.payload.hasNextPage;
+        state.params.page = 2;
+      })
+      .addCase(getInitialCamperList.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getInitialCamperList.rejected, (state) => {
+        state.isLoading = false;
       }),
 });
 
 export const campersReducer = camperSlice.reducer;
-export const { deleteFromFavorite } = camperSlice.actions;
+export const { deleteFromFavorite, changeParams } = camperSlice.actions;

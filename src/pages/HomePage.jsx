@@ -1,7 +1,8 @@
 import css from './Pages.module.css';
+import { Container } from 'shared';
 
 const HomePage = () => {
-  return <section className={css.homePageSection}></section>;
+  return <Container className={css.homePageContainer} />;
 };
 
 export default HomePage;

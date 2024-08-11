@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { selectFavoritesId, selectIsLoading } from '@redux/campers/selectors';
 import { getCamperByIds } from '@redux/campers/operations';
 import { FavoriteCampersList, Loader } from 'components';
+import { Container } from 'shared';
 
 import css from './Pages.module.css';
 import { selectFavoritesList } from '../redux/campers/selectors';
@@ -21,7 +22,7 @@ const FavoritesPage = () => {
   }, [dispatch, favoritesId, favoritesList]);
 
   return (
-    <section className={css.pageSection}>
+    <Container className={css.favoritesPageContainer}>
       <Loader visible={isLoading && !favoritesId.length} />
       <FavoriteCampersList />
       {!favoritesId.length && !isLoading && (
@@ -30,7 +31,7 @@ const FavoritesPage = () => {
           displayed on this page!
         </p>
       )}
-    </section>
+    </Container>
   );
 };
 

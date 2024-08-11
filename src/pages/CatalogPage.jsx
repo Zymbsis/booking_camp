@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCamperList } from '@redux/campers/operations';
 import {
   selectCamperList,
   selectIsLoading,
   selectHasNextPage,
 } from '@redux/campers/selectors';
-import { LoadMoreButton, Loader, CampersList } from 'components';
+import { getInitialCamperList } from '@redux/campers/operations';
+import { LoadMoreButton, Loader, CampersList, FilterBar } from 'components';
+import { Container } from 'shared';
 import css from './Pages.module.css';
 
 const CatalogPage = () => {
@@ -17,12 +18,13 @@ const CatalogPage = () => {
 
   useEffect(() => {
     if (camperList.length) return;
-    dispatch(getCamperList({}));
+    dispatch(getInitialCamperList({ page: 1, limit: 4, form: '' }));
   }, [dispatch, camperList]);
 
   return (
-    <>
-      <section className={css.pageSection}>
+    <Container className={css.catalogPageContainer}>
+      <FilterBar />
+      <section className={css.catalogPageSection}>
         <Loader visible={isLoading && !camperList.length} />
         <CampersList />
         <Loader visible={isLoading && camperList.length} />
@@ -35,7 +37,7 @@ const CatalogPage = () => {
             </p>
           ))}
       </section>
-    </>
+    </Container>
   );
 };
 

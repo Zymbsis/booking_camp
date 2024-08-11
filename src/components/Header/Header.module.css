@@ -8,11 +8,6 @@
   z-index: 10;
 }
 
-.header > .headerContainer {
-  height: 100%;
-  display: block;
-}
-
 .navLinkContainer {
   height: 100%;
   display: flex;

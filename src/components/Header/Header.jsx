@@ -9,7 +9,7 @@ const getNavLinkClass = ({ isActive }) =>
 const Header = () => {
   return (
     <header className={css.header}>
-      <Container className={css.headerContainer}>
+      <Container>
         <nav className={css.navLinkContainer}>
           <NavLink
             className={getNavLinkClass}

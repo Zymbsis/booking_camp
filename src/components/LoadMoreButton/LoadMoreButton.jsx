@@ -1,15 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectPage } from '@redux/campers/selectors';
 import { getCamperList } from '@redux/campers/operations';
 import { Button } from 'shared';
 import css from './LoadMoreButton.module.css';
+import { selectParams } from '../../redux/campers/selectors';
 
 const LoadMoreButton = () => {
   const dispatch = useDispatch();
-  const page = useSelector(selectPage);
+  const params = useSelector(selectParams);
 
   const handleLoadMore = () => {
-    dispatch(getCamperList({ page }));
+    console.log(params);
+    dispatch(getCamperList(params));
   };
 
   return (

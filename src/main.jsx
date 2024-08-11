@@ -20,5 +20,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </PersistGate>
     </Provider>
   </ModalProvider>,
-  /* </React.StrictMode>, */
+  // </React.StrictMode>,
 );
