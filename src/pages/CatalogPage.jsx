@@ -25,9 +25,8 @@ const CatalogPage = () => {
     <Container className={css.catalogPageContainer}>
       <FilterBar />
       <section className={css.catalogPageSection}>
-        <Loader visible={isLoading && !camperList.length} />
         <CampersList />
-        <Loader visible={isLoading && camperList.length} />
+        <Loader visible={isLoading} />
         {!isLoading &&
           (hasNextPage ? (
             <LoadMoreButton />

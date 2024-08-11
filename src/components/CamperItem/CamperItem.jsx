@@ -13,11 +13,23 @@ const CamperItem = ({ item }) => {
     openModal(<CamperCard item={item} />);
   };
 
+  const handleShowImage = () => {
+    openModal(
+      <div className={css.modalImg}>
+        <ImageCard
+          img={gallery[0]}
+          name={name}
+        />
+      </div>,
+    );
+  };
+
   return (
     <>
       <ImageCard
         img={gallery[0]}
         name={name}
+        onClick={handleShowImage}
       />
       <div className={css.textWrapper}>
         <div>

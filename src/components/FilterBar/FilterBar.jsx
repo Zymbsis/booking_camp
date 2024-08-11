@@ -1,14 +1,11 @@
-import { useLocation } from 'react-router-dom';
-import clsx from 'clsx';
-import css from './FilterBar.module.css';
 import { useForm } from 'react-hook-form';
-import { Button, Icon } from 'shared';
 import { useDispatch } from 'react-redux';
 import { getInitialCamperList } from '@redux/campers/operations';
-import { changeParams } from '../../redux/campers/slice';
+import { changeParams } from '@redux/campers/slice';
+import { Button, Icon } from 'shared';
+import css from './FilterBar.module.css';
 
 const FilterBar = () => {
-  const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm({});
 
@@ -19,10 +16,7 @@ const FilterBar = () => {
     );
   };
   return (
-    <aside
-      className={clsx(css.filterBar, {
-        [css.homePageFilterBar]: pathname === '/',
-      })}>
+    <aside className={css.filterBar}>
       <form
         className={css.form}
         onSubmit={handleSubmit(onSubmit)}>
