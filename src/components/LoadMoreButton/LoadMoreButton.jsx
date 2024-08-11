@@ -1,19 +1,23 @@
-import { useSelector } from 'react-redux';
-import css from './LoadMoreButton.module.css';
-import { selectHasNextPage } from '../../redux/campers/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectPage } from '@redux/campers/selectors';
+import { getCamperList } from '@redux/campers/operations';
 import { Button } from 'shared';
+import css from './LoadMoreButton.module.css';
 
-const LoadMoreButton = ({ onClick }) => {
-  const hasNextPage = useSelector(selectHasNextPage);
+const LoadMoreButton = () => {
+  const dispatch = useDispatch();
+  const page = useSelector(selectPage);
 
-  return hasNextPage ? (
+  const handleLoadMore = () => {
+    dispatch(getCamperList({ page }));
+  };
+
+  return (
     <Button
       className={css.loadMoreButton}
-      onClick={onClick}>
+      onClick={handleLoadMore}>
       Load More
     </Button>
-  ) : (
-    <p className={css.allResults}>Here are all the search results</p>
   );
 };
 

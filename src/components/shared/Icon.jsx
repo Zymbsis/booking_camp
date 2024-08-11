@@ -4,7 +4,7 @@ import clsx from 'clsx';
 const Icon = ({ iconId, className, ...props }) => {
   return (
     <svg
-      className={clsx('icon', { [className]: className })}
+      className={clsx('icon', className)}
       role='img'
       {...props}>
       <use xlinkHref={`${icon}#${iconId}`} />

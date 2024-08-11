@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { modalContext } from 'helpers';
 import { createPortal } from 'react-dom';
+import { modalContext } from 'helpers';
 import ModalBackdrop from '../ModalBackdrop/ModalBackdrop';
 
 const ModalProvider = ({ children }) => {

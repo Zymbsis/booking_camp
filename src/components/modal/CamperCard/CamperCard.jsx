@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { CamperPrice, CamperTitle } from 'shared';
+import { CamperPrice, CamperTitle, ImageCard } from 'shared';
 import CamperCardDetails from '../CamperCardDetails/CamperCardDetails';
-import ImageCard from '../../ImageCard/ImageCard';
 import MetaInfo from '../../MetaInfo/MetaInfo';
-
 import css from './CamperCard.module.css';
 
 const CamperCard = ({ item }) => {

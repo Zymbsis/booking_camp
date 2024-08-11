@@ -1,9 +1,9 @@
-import { createPageFeaturesList } from 'helpers';
+import { createModalFeaturesList } from 'helpers';
 import { Icon } from 'shared';
-import css from './PageFeaturesList.module.css';
+import css from './ModalFeaturesList.module.css';
 
-const PageFeaturesList = ({ item }) => {
-  const featuresList = createPageFeaturesList(item);
+const ModalFeaturesList = ({ item }) => {
+  const featuresList = createModalFeaturesList(item);
 
   return (
     <ul className={css.featuresList}>
@@ -22,4 +22,4 @@ const PageFeaturesList = ({ item }) => {
   );
 };
 
-export default PageFeaturesList;
+export default ModalFeaturesList;

@@ -5,7 +5,7 @@ const Button = ({ type = 'button', onClick, className, children }) => {
     <button
       type={type}
       onClick={onClick}
-      className={clsx('button', { [className]: className })}>
+      className={clsx('button', className)}>
       {children}
     </button>
   );

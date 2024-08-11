@@ -1,6 +1,6 @@
+import { capitalizeFirstLetter } from 'helpers';
 import clsx from 'clsx';
 import css from './InputField.module.css';
-import { capitalizeFirstLetter } from '../../../helpers';
 
 const InputField = ({
   fieldName,

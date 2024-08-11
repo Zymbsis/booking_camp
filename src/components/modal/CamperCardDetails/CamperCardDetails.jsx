@@ -1,7 +1,6 @@
 import Features from '../Features/Features';
 import Form from '../Form/Form';
 import Reviews from '../Reviews/Reviews';
-
 import clsx from 'clsx';
 import css from './CamperCardDetails.module.css';
 

@@ -6,3 +6,30 @@
   width: 100%;
   height: calc(100vh - 200px);
 }
+
+.pageSection {
+  width: 888px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.catalogPagePlaceholder {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--cherry-red);
+  text-decoration-thickness: 2px;
+}
+
+.favoritesPagePlaceholder {
+  color: var(--steel-gray);
+  font-size: 24px;
+  line-height: 1.5;
+  text-align: center;
+  padding-top: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+}

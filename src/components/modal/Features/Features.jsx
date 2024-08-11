@@ -1,4 +1,4 @@
-import ModalFeaturesList from '../FeaturesList/FeaturesList';
+import ModalFeaturesList from '../ModalFeaturesList/ModalFeaturesList';
 import VehicleDetailsList from '../VehicleDetailsList/VehicleDetailsList';
 import css from './Features.module.css';
 

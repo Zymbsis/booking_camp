@@ -11,6 +11,13 @@
   margin-bottom: 8px;
 }
 
+.titleWrapper > .title {
+  max-width: 350px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .priceWrapper {
   position: relative;
   display: flex;
@@ -20,4 +27,14 @@
 
 .supportingText {
   color: var(--steel-gray);
+}
+
+.showMoreButton {
+  padding: 16px 40px;
+  color: var(--total-white);
+  background-color: var(--cherry-red);
+}
+
+.showMoreButton:hover {
+  background-color: var(--crimson-red);
 }

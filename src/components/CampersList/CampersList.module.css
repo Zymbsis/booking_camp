@@ -1,15 +1,8 @@
-.wrapper {
-  width: 888px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
-}
-
 .camperList {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  margin-bottom: 50px;
 }
 
 .camperItem {

@@ -1,6 +1,6 @@
+import { useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './Fallback.module.css';
-import { useLocation } from 'react-router-dom';
 
 const Fallback = () => {
   const { pathname } = useLocation();

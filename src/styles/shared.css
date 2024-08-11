@@ -14,18 +14,11 @@
 .button {
   height: 56px;
   width: 166px;
-  padding: 16px 40px;
   border-radius: 200px;
-  background-color: var(--cherry-red);
-  color: var(--total-white);
   font-weight: 500;
   font-size: 16px;
   letter-spacing: -0.05em;
   transition: all 300ms ease-in;
-}
-
-.button:hover {
-  background-color: var(--crimson-red);
 }
 
 .camperTitle,
@@ -33,4 +26,15 @@
   font-size: 24px;
   font-weight: 600;
   line-height: 1.25;
+}
+
+.imgWrapper {
+  width: 290px;
+  height: 310px;
+}
+
+.imgWrapper > img {
+  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
 }

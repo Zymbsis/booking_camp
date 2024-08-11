@@ -1,6 +1,6 @@
 .header {
-  height: 80px;
   width: 100%;
+  height: 80px;
   position: fixed;
   top: 0;
   left: 0;
@@ -8,16 +8,17 @@
   z-index: 10;
 }
 
-.headerContainer {
+.header > .headerContainer {
   height: 100%;
+  display: block;
 }
 
 .navLinkContainer {
+  height: 100%;
   display: flex;
-  gap: 40px;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  gap: 40px;
 }
 
 .navLink {

@@ -4,3 +4,4 @@ export { default as CamperPrice } from './CamperPrice.jsx';
 export { default as CamperTitle } from './CamperTitle.jsx';
 export { default as Icon } from './Icon.jsx';
 export { default as Section } from './Section.jsx';
+export { default as ImageCard } from './ImageCard.jsx';

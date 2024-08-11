@@ -1,15 +1,15 @@
+import 'react-datepicker/dist/react-datepicker.css';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { formatDate } from 'helpers';
 import { Icon } from 'shared';
-
 import clsx from 'clsx';
 import css from './Calendar.module.css';
 
 const Calendar = ({ errors, setValue, register }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
   const handlePickerChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -36,9 +36,9 @@ const Calendar = ({ errors, setValue, register }) => {
             className={css.icon}
           />
         }
-        toggleCalendarOnIconClick
         minDate={new Date()}
         onChange={handlePickerChange}
+        toggleCalendarOnIconClick
         customInput={
           <input
             type='text'

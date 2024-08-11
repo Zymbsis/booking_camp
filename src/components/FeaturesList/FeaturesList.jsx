@@ -1,9 +1,9 @@
-import { createModalFeaturesList } from 'helpers';
+import { createPageFeaturesList } from 'helpers';
 import { Icon } from 'shared';
 import css from './FeaturesList.module.css';
 
 const FeaturesList = ({ item }) => {
-  const featuresList = createModalFeaturesList(item);
+  const featuresList = createPageFeaturesList(item);
 
   return (
     <ul className={css.featuresList}>

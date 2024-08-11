@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import { bookingFormValidationSchema } from 'helpers';
 import { Button } from 'shared';
 import Calendar from '../Calendar/Calendar';
+import InputField from '../InputField/InputField';
 import clsx from 'clsx';
 import css from './Form.module.css';
-import InputField from '../InputField/InputField';
 
 const Form = ({ id }) => {
   const {

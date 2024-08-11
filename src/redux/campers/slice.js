@@ -12,9 +12,6 @@ const camperSlice = createSlice({
     favoritesList: [],
   },
   reducers: {
-    addToFavorite: (state, action) => {
-      state.favoritesId.push(action.payload);
-    },
     deleteFromFavorite: (state, action) => {
       state.favoritesId = state.favoritesId.filter(
         (item) => item !== action.payload,
@@ -40,11 +37,11 @@ const camperSlice = createSlice({
       })
       .addCase(getCamperById.fulfilled, (state, action) => {
         state.favoritesList = [...state.favoritesList, action.payload];
+        state.favoritesId = [...state.favoritesId, action.payload.id];
       })
       .addCase(getCamperByIds.fulfilled, (state, action) => {
         state.isLoading = false;
         state.favoritesList = action.payload;
-        console.log(action.payload);
       })
       .addCase(getCamperByIds.pending, (state) => {
         state.isLoading = true;
@@ -55,5 +52,4 @@ const camperSlice = createSlice({
 });
 
 export const campersReducer = camperSlice.reducer;
-export const { addToFavorite, deleteFromFavorite, increasePage } =
-  camperSlice.actions;
+export const { deleteFromFavorite } = camperSlice.actions;
