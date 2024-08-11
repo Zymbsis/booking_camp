@@ -5,6 +5,8 @@
   background-color: var(--soft-gray);
   border: none;
   border-radius: 10px;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
 .icon {

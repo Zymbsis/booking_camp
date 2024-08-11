@@ -1,8 +1,0 @@
-.container {
-  background-image: url('../images/test.webp');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: contain;
-  width: 100%;
-  height: calc(100vh - 200px);
-}

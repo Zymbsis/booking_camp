@@ -1,4 +1,4 @@
-import icon from '../../images/icons.svg';
+import { icon } from 'icons';
 import clsx from 'clsx';
 
 const Icon = ({ iconId, className, ...props }) => {

@@ -1,12 +1,17 @@
 import { Suspense } from 'react';
-import Header from '../Header/Header';
-import Loader from '../Loader/Loader';
+import { Section, Container } from 'shared';
+import { Fallback, Header, FilterBar } from 'components';
 
 const SharedLayout = ({ children }) => {
   return (
     <main>
       <Header />
-      <Suspense fallback={<Loader />}>{children}</Suspense>
+      <Section>
+        <Container>
+          <FilterBar />
+          <Suspense fallback={<Fallback />}>{children}</Suspense>
+        </Container>
+      </Section>
     </main>
   );
 };

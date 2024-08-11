@@ -2,22 +2,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import CamperItem from '../CamperItem/CamperItem';
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton';
 import css from './AllCamperList.module.css';
-import { selectCamperList, selectPage } from '../../redux/campers/selectors';
+import {
+  selectCamperList,
+  selectIsLoading,
+  selectPage,
+} from '../../redux/campers/selectors';
 import { getCamperList } from '../../redux/campers/operations';
 import { useEffect } from 'react';
-import { increasePage } from '../../redux/campers/slice';
 import { useModal } from 'helpers';
 
 import CamperCard from '../modal/CamperCard/CamperCard';
+import Loader from '../Loader/Loader';
 
 const AllCamperList = () => {
   const dispatch = useDispatch();
   const { openModal } = useModal();
   const camperList = useSelector(selectCamperList);
+  const isLoading = useSelector(selectIsLoading);
   const page = useSelector(selectPage);
 
   const handleLoadMore = () => {
-    dispatch(increasePage());
     dispatch(getCamperList({ page }));
   };
 
@@ -26,14 +30,14 @@ const AllCamperList = () => {
   };
 
   useEffect(() => {
-    if (page === 1) {
-      dispatch(increasePage());
+    if (camperList.length === 0) {
       dispatch(getCamperList({}));
     }
-  }, [dispatch, page]);
+  }, [dispatch, camperList]);
 
   return (
-    <div className={css.wrapper}>
+    <section className={css.wrapper}>
+      <Loader visible={isLoading && !camperList.length} />
       <ul className={css.camperList}>
         {camperList.map((item) => (
           <li
@@ -46,8 +50,9 @@ const AllCamperList = () => {
           </li>
         ))}
       </ul>
-      <LoadMoreButton onClick={handleLoadMore} />
-    </div>
+      <Loader visible={isLoading && camperList.length} />
+      {!isLoading && <LoadMoreButton onClick={handleLoadMore} />}
+    </section>
   );
 };
 

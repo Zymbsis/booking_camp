@@ -1,0 +1,8 @@
+.homePageSection {
+  background-image: image-set('background_webp.webp', 'background_png.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  width: 100%;
+  height: calc(100vh - 200px);
+}

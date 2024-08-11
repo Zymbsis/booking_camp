@@ -34,3 +34,16 @@ export const getCamperById = createAsyncThunk(
     }
   },
 );
+
+export const getCamperByIds = createAsyncThunk(
+  'campers/getCamperByIds',
+  async (ids, thunkAPI) => {
+    try {
+      const promises = ids.map((id) => instance.get(`/adverts/${id}`));
+      const result = await Promise.all(promises);
+      return result.map((item) => item.data);
+    } catch (error) {
+      thunkAPI.rejectWithValue(error);
+    }
+  },
+);

@@ -1,11 +1,10 @@
 import { lazy } from 'react';
-import SharedLayout from './components/SharedLayout/SharedLayout';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { SharedLayout } from 'components';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const FavoritesPage = lazy(() => import('./pages/FavoritesPage'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 const App = () => {
   return (
@@ -25,7 +24,12 @@ const App = () => {
         />
         <Route
           path='*'
-          element={<NotFoundPage />}
+          element={
+            <Navigate
+              to='/'
+              replace
+            />
+          }
         />
       </Routes>
     </SharedLayout>

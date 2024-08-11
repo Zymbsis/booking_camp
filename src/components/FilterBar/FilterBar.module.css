@@ -2,3 +2,7 @@
   width: 360px;
   background-color: var(--steel-gray);
 }
+
+.homePageFilterBar {
+  display: none;
+}

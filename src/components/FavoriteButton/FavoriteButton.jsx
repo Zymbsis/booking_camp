@@ -5,6 +5,7 @@ import { selectFavoritesId } from '../../redux/campers/selectors';
 import { clsx } from 'clsx';
 import css from './FavoriteButton.module.css';
 import { Icon } from 'shared';
+import { getCamperById } from '../../redux/campers/operations';
 
 const FavoriteButton = ({ id }) => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const FavoriteButton = ({ id }) => {
     setIsChecked(checked);
     if (checked) {
       dispatch(addToFavorite(id));
+      dispatch(getCamperById(id));
     } else {
       dispatch(deleteFromFavorite(id));
     }

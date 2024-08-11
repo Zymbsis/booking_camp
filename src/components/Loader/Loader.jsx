@@ -1,10 +1,13 @@
-import css from './Loader.module.css';
+import { DNA } from 'react-loader-spinner';
 
-const Loader = () => {
+const Loader = ({ visible }) => {
   return (
-    <div className={css.wrapper}>
-      <span className={css.loader}></span>
-    </div>
+    <DNA
+      visible={visible}
+      height='100'
+      width='100'
+      ariaLabel='dna-loading'
+    />
   );
 };
 

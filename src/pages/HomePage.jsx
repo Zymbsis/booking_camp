@@ -1,12 +1,7 @@
-import {Container,Section} from 'shared';
-import css from './HomePage.module.css';
+import css from './Pages.module.css';
 
 const HomePage = () => {
-  return (
-    <Section className={css.section}>
-      <Container className={css.container}></Container>
-    </Section>
-  );
+  return <section className={css.homePageSection}></section>;
 };
 
 export default HomePage;
