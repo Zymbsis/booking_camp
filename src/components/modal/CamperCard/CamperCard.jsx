@@ -3,12 +3,10 @@ import { CamperPrice, CamperTitle, ImageCard } from 'shared';
 import CamperCardDetails from '../CamperCardDetails/CamperCardDetails';
 import MetaInfo from '../../MetaInfo/MetaInfo';
 import css from './CamperCard.module.css';
-import clsx from 'clsx';
 
 const CamperCard = ({ item }) => {
   const { name, rating, reviews, location, price, gallery, description } = item;
   const [showFeatures, setShowFeatures] = useState(true);
-  const [visibleDescription, setVisibleDescription] = useState(false);
 
   const handleToggleContent = () => {
     setShowFeatures(!showFeatures);
@@ -37,18 +35,9 @@ const CamperCard = ({ item }) => {
             </li>
           ))}
         </ul>
-        <div
-          className={clsx(css.descriptionWrapper, {
-            [css.visibleDescription]: visibleDescription,
-          })}>
-          <p className={css.description}>{description}</p>
-          <span
-            onClick={() => {
-              setVisibleDescription(!visibleDescription);
-            }}>
-            ... {visibleDescription ? 'Show less' : 'Show more'}
-          </span>
-        </div>
+
+        <p className={css.description}>{description}</p>
+
         <CamperCardDetails
           item={item}
           handleToggleContent={handleToggleContent}
