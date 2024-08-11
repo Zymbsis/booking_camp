@@ -5,6 +5,10 @@ export const bookingFormValidationSchema = yup.object({
     .string()
     .min(3, 'min 3 characters')
     .max(50, 'max 50 characters')
+    .matches(
+      /^[A-Za-z][A-Za-z\s-]*[A-Za-z]$/,
+      'only letters, spaces, and hyphens are allowed',
+    )
     .required('required field'),
   email: yup.string().email('invalid email format').required('required field'),
   bookingDate: yup

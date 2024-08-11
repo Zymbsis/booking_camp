@@ -13,23 +13,51 @@
   margin-bottom: 16px;
 }
 
-.descriptionWrapper {
+.descriptionContainer {
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 24px;
   height: calc(100% - 134px);
 }
 
-.descriptionWrapper::-webkit-scrollbar {
+.descriptionContainer::-webkit-scrollbar {
   background-color: transparent;
   width: 8px;
   position: relative;
   right: 20px;
 }
 
-.descriptionWrapper::-webkit-scrollbar-thumb {
+.descriptionContainer::-webkit-scrollbar-thumb {
   border-radius: 7px;
   background-color: #D9D9D9;
+}
+
+.descriptionWrapper {
+  max-height: 72px;
+  margin-bottom: 44px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 300ms ease;
+}
+
+.descriptionWrapper.visibleDescription {
+  max-height: 100%;
+}
+
+.descriptionWrapper > span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--total-white);
+  padding-left: 5px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--cherry-red);
+}
+
+.descriptionWrapper.visibleDescription > span {
+  left: 0;
 }
 
 .imageList {
@@ -45,5 +73,4 @@
 
 .description {
   color: var(--steel-gray);
-  margin-bottom: 44px;
 }
