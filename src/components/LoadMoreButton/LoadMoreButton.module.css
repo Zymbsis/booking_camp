@@ -4,7 +4,7 @@
   background-color: var(--total-white);
   border: 1px solid rgba(71, 84, 103, 0.20);
   color: var(--midnight-navy);
-  transition: all 300ms ease;
+  transition: var(--transition);
 }
 
 .loadMoreButton:hover {

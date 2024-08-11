@@ -14,7 +14,7 @@
   fill: var(--total-white);
   stroke: var(--midnight-navy);
   pointer-events: none;
-  transition: fill 300ms ease;
+  transition: var(--transition);
 }
 
 .active {

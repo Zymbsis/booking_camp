@@ -37,7 +37,7 @@
   margin-bottom: 44px;
   overflow: hidden;
   position: relative;
-  transition: max-height 300ms ease;
+  transition: max-height var(--transition-duration) var(--transition-timing-function);
 }
 
 .descriptionWrapper.visibleDescription {
