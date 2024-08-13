@@ -19,7 +19,7 @@ import persistReducer from 'redux-persist/es/persistReducer';
 const campersPersistConfig = {
   key: 'campers',
   storage,
-  whitelist: ['favoritesId'],
+  whitelist: ['favoriteIds'],
 };
 export const store = configureStore({
   reducer: {

@@ -1,35 +1,44 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectIsLoading } from '@redux/campers/selectors';
+import { Loader, CampersList, FilterBar } from 'components';
+import { Container, Button } from 'shared';
+import { changePage } from '@redux/campers/slice';
 import {
+  selectPage,
+  selectParams,
   selectCamperList,
-  selectIsLoading,
-  selectHasNextPage,
 } from '@redux/campers/selectors';
-import { getInitialCamperList } from '@redux/campers/operations';
-import { LoadMoreButton, Loader, CampersList, FilterBar } from 'components';
-import { Container } from 'shared';
+import { getCampersList } from '@redux/campers/operations';
 import css from './Pages.module.css';
-import { selectPage } from '../redux/campers/selectors';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  const hasNextPage = useSelector(selectHasNextPage);
   const camperList = useSelector(selectCamperList);
+  const params = useSelector(selectParams);
   const page = useSelector(selectPage);
+  const hasNextPage = camperList.length % 4 === 0;
+
+  const handleLoadMore = () => {
+    dispatch(changePage(page + 1));
+  };
 
   useEffect(() => {
-    if (camperList.length) return;
-    dispatch(getInitialCamperList({ page: 1, limit: 4, form: '' }));
-  }, [dispatch, camperList]);
+    if (page === null) {
+      dispatch(changePage(1));
+      return;
+    }
+    dispatch(getCampersList(params));
+  }, [dispatch, params, page]);
 
-  useEffect(() => {
-    if (page <= 2) return;
-    const timer = setTimeout(() => {
-      window.scrollBy({ top: 500, behavior: 'smooth' });
-    }, 0);
-    return () => clearTimeout(timer);
-  }, [page]);
+  // useEffect(() => {
+  //   if (page <= 1) return;
+  //   const timer = setTimeout(() => {
+  //     window.scrollBy({ top: 500, behavior: 'smooth' });
+  //   }, 200);
+  //   return () => clearTimeout(timer);
+  // }, [page]);
 
   return (
     <Container className={css.catalogPageContainer}>
@@ -39,7 +48,11 @@ const CatalogPage = () => {
         <Loader visible={isLoading} />
         {!isLoading &&
           (hasNextPage ? (
-            <LoadMoreButton />
+            <Button
+              className={css.loadMoreButton}
+              onClick={handleLoadMore}>
+              Load More
+            </Button>
           ) : (
             <p className={css.catalogPagePlaceholder}>
               Here are all the search results

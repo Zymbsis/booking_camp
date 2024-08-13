@@ -1,19 +1,19 @@
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { getInitialCamperList } from '@redux/campers/operations';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeParams } from '@redux/campers/slice';
+import { getCampersList } from '@redux/campers/operations';
+import { selectParams } from '@redux/campers/selectors';
 import { Button, Icon } from 'shared';
 import css from './FilterBar.module.css';
 
 const FilterBar = () => {
   const dispatch = useDispatch();
+  const params = useSelector(selectParams);
   const { register, handleSubmit } = useForm({});
 
   const onSubmit = (data) => {
-    dispatch(changeParams(data.vehicleType));
-    dispatch(
-      getInitialCamperList({ page: 1, limit: 4, form: data.vehicleType }),
-    );
+    dispatch(changeParams({ ...params, form: data.vehicleType, page: 1 }));
+    dispatch(getCampersList({ ...params, form: data.vehicleType, page: 1 }));
   };
 
   return (

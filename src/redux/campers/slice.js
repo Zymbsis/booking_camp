@@ -1,55 +1,39 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  getCamperById,
-  getCamperByIds,
-  getCamperList,
-  getInitialCamperList,
-} from './operations';
+import { getCamperByIds, getCampersList } from './operations';
 
 const camperSlice = createSlice({
   name: 'campers',
   initialState: {
     campers: [],
+    favoriteCampers: [],
+    favoriteIds: [],
     params: { page: 1, limit: 4, form: '' },
     isLoading: false,
-    hasNextPage: true,
-    favoritesId: [],
-    favoritesList: [],
   },
   reducers: {
     deleteFromFavorite: (state, action) => {
-      state.favoritesId = state.favoritesId.filter(
+      state.favoriteIds = state.favoriteIds.filter(
         (item) => item !== action.payload,
       );
-      state.favoritesList = state.favoritesList.filter(
+      state.favoriteCampers = state.favoriteCampers.filter(
         (item) => item.id !== action.payload,
       );
     },
     changeParams: (state, action) => {
-      state.params.form = action.payload;
+      state.params = action.payload;
+    },
+    addToFavorite: (state, action) => {
+      state.favoriteIds.push(action.payload);
+    },
+    changePage: (state, action) => {
+      state.params.page = action.payload;
     },
   },
   extraReducers: (builder) =>
     builder
-      .addCase(getCamperList.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.campers = [...state.campers, ...action.payload.data];
-        state.hasNextPage = action.payload.hasNextPage;
-        state.params.page = state.params.page + 1;
-      })
-      .addCase(getCamperList.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(getCamperList.rejected, (state) => {
-        state.isLoading = false;
-      })
-      .addCase(getCamperById.fulfilled, (state, action) => {
-        state.favoritesList = [...state.favoritesList, action.payload];
-        state.favoritesId = [...state.favoritesId, action.payload.id];
-      })
       .addCase(getCamperByIds.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.favoritesList = action.payload;
+        state.favoriteCampers = action.payload;
       })
       .addCase(getCamperByIds.pending, (state) => {
         state.isLoading = true;
@@ -57,19 +41,22 @@ const camperSlice = createSlice({
       .addCase(getCamperByIds.rejected, (state) => {
         state.isLoading = false;
       })
-      .addCase(getInitialCamperList.fulfilled, (state, action) => {
+      .addCase(getCampersList.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.campers = action.payload.data;
-        state.hasNextPage = action.payload.hasNextPage;
-        state.params.page = 2;
+        if (state.params.page === 1) {
+          state.campers = action.payload;
+        } else {
+          state.campers.push(...action.payload);
+        }
       })
-      .addCase(getInitialCamperList.pending, (state) => {
+      .addCase(getCampersList.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getInitialCamperList.rejected, (state) => {
+      .addCase(getCampersList.rejected, (state) => {
         state.isLoading = false;
       }),
 });
 
 export const campersReducer = camperSlice.reducer;
-export const { deleteFromFavorite, changeParams } = camperSlice.actions;
+export const { deleteFromFavorite, changeParams, addToFavorite, changePage } =
+  camperSlice.actions;

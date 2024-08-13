@@ -5,5 +5,4 @@ export { default as Header } from './Header/Header.jsx';
 export { default as FilterBar } from './FilterBar/FilterBar.jsx';
 export { default as CampersList } from './CampersList/CampersList.jsx';
 export { default as FavoriteCampersList } from './FavoriteCampersList/FavoriteCampersList.jsx';
-export { default as LoadMoreButton } from './LoadMoreButton/LoadMoreButton.jsx';
 export { default as Loader } from './Loader/Loader.jsx';

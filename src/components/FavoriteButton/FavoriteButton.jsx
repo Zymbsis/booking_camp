@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteFromFavorite } from '@redux/campers/slice';
+import { deleteFromFavorite, addToFavorite } from '@redux/campers/slice';
 import { selectFavoritesId } from '@redux/campers/selectors';
-import { getCamperById } from '@redux/campers/operations';
 import { Icon } from 'shared';
 import clsx from 'clsx';
 import css from './FavoriteButton.module.css';
@@ -18,7 +17,7 @@ const FavoriteButton = ({ id }) => {
   const handleChange = ({ target: { checked } }) => {
     setIsChecked(checked);
     if (checked) {
-      dispatch(getCamperById(id));
+      dispatch(addToFavorite(id));
     } else {
       dispatch(deleteFromFavorite(id));
     }

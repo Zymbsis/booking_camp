@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectFavoritesId, selectIsLoading } from '@redux/campers/selectors';
+import { selectFavoritesList } from '@redux/campers/selectors';
 import { getCamperByIds } from '@redux/campers/operations';
 import { FavoriteCampersList, Loader } from 'components';
 import { Container } from 'shared';
 
 import css from './Pages.module.css';
-import { selectFavoritesList } from '../redux/campers/selectors';
 
 const FavoritesPage = () => {
   const dispatch = useDispatch();
@@ -15,8 +15,7 @@ const FavoritesPage = () => {
   const favoritesList = useSelector(selectFavoritesList);
 
   useEffect(() => {
-    if (!favoritesId.length) return;
-    if (favoritesId.length && !favoritesList.length) {
+    if (favoritesId.length && favoritesList.length === 0) {
       dispatch(getCamperByIds(favoritesId));
     }
   }, [dispatch, favoritesId, favoritesList]);
