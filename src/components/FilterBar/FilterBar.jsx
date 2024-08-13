@@ -15,6 +15,7 @@ const FilterBar = () => {
       getInitialCamperList({ page: 1, limit: 4, form: data.vehicleType }),
     );
   };
+
   return (
     <aside className={css.filterBar}>
       <form

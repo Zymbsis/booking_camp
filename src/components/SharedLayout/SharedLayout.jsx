@@ -4,12 +4,14 @@ import { Fallback, Header } from 'components';
 
 const SharedLayout = ({ children }) => {
   return (
-    <main>
+    <>
       <Header />
-      <Section>
-        <Suspense fallback={<Fallback />}>{children}</Suspense>
-      </Section>
-    </main>
+      <main>
+        <Section>
+          <Suspense fallback={<Fallback />}>{children}</Suspense>
+        </Section>
+      </main>
+    </>
   );
 };
 

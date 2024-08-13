@@ -5,7 +5,7 @@ const VehicleDetailsList = ({ item }) => {
   const vehicleDetailsList = createVehicleDetailsList(item);
 
   return (
-    <div>
+    <>
       <p className={css.vehicleTitle}>Vehicle details</p>
       <ul className={css.vehicleList}>
         {vehicleDetailsList.map((vehicleDetail, index) => (
@@ -17,7 +17,7 @@ const VehicleDetailsList = ({ item }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 
