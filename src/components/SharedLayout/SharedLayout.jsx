@@ -1,15 +1,15 @@
 import { Suspense } from 'react';
-import { Section } from 'shared';
 import { Fallback, Header } from 'components';
+import css from './SharedLayout.module.css';
 
 const SharedLayout = ({ children }) => {
   return (
     <>
       <Header />
       <main>
-        <Section>
+        <section className={css.mainSection}>
           <Suspense fallback={<Fallback />}>{children}</Suspense>
-        </Section>
+        </section>
       </main>
     </>
   );

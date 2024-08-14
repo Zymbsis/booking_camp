@@ -7,14 +7,14 @@ const instance = axios.create({
 
 export const getCampersList = createAsyncThunk(
   'campers/getCampersList',
-  async (params, thunkAPI) => {
+  async ({ page = 1, limit = 4, ...params }, thunkAPI) => {
     try {
       const { data } = await instance.get('/adverts', {
-        params,
+        params: { page, limit, ...params },
       });
       return data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
@@ -27,7 +27,7 @@ export const getCamperByIds = createAsyncThunk(
       const result = await Promise.all(promises);
       return result.map((item) => item.data);
     } catch (error) {
-      thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   },
 );

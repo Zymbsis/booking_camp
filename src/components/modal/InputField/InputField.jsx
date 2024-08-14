@@ -4,15 +4,22 @@ import css from './InputField.module.css';
 
 const InputField = ({
   fieldName,
+  label,
   errors,
   register,
   type = 'text',
   placeholder,
   children,
+  className,
   ...props
 }) => {
   return (
-    <div className={clsx(css.inputWrapper, { [css.error]: errors[fieldName] })}>
+    <label
+      className={clsx(css.inputWrapper, {
+        [css.error]: errors[fieldName],
+        className,
+      })}>
+      {label ? label : capitalizeFirstLetter(fieldName)}
       <input
         type={type}
         placeholder={
@@ -23,7 +30,7 @@ const InputField = ({
       />
       {children}
       {errors[fieldName] && <span>{errors[fieldName].message}</span>}
-    </div>
+    </label>
   );
 };
 

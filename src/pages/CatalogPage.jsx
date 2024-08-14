@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoading } from '@redux/campers/selectors';
 import { Loader, CampersList, FilterBar } from 'components';
 import { Container, Button } from 'shared';
-import { changePage } from '@redux/campers/slice';
 import {
   selectPage,
   selectParams,
@@ -11,6 +10,7 @@ import {
 } from '@redux/campers/selectors';
 import { getCampersList } from '@redux/campers/operations';
 import css from './Pages.module.css';
+import { nextPage } from '../redux/campers/slice';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -18,20 +18,21 @@ const CatalogPage = () => {
   const camperList = useSelector(selectCamperList);
   const params = useSelector(selectParams);
   const page = useSelector(selectPage);
+
   const hasNextPage = camperList.length % 4 === 0;
 
   const handleLoadMore = () => {
-    dispatch(changePage(page + 1));
+    dispatch(nextPage());
   };
 
   useEffect(() => {
-    if (page === 1 && !camperList.length) {
-      dispatch(getCampersList(params));
+    if (!camperList.length && page === 1) {
+      dispatch(getCampersList({ page, ...params }));
       return;
     }
-    if (Math.ceil(camperList.length / params.limit) === page) return;
-    dispatch(getCampersList(params));
-  }, [dispatch, params, page, camperList]);
+    if (Math.ceil(camperList.length / 4) === page) return;
+    dispatch(getCampersList({ page, ...params }));
+  }, [dispatch, page, params, camperList]);
 
   // useEffect(() => {
   //   if (page <= 1) return;
@@ -45,20 +46,25 @@ const CatalogPage = () => {
     <Container className={css.catalogPageContainer}>
       <FilterBar />
       <section className={css.catalogPageSection}>
-        <CampersList />
+        {!isLoading && !camperList.length ? (
+          <p>Nothing found</p>
+        ) : (
+          <CampersList />
+        )}
         <Loader visible={isLoading} />
-        {!isLoading &&
-          (hasNextPage ? (
-            <Button
-              className={css.loadMoreButton}
-              onClick={handleLoadMore}>
-              Load More
-            </Button>
-          ) : (
-            <p className={css.catalogPagePlaceholder}>
-              Here are all the search results
-            </p>
-          ))}
+        {!isLoading && hasNextPage && camperList.length ? (
+          <Button
+            className={css.loadMoreButton}
+            onClick={handleLoadMore}>
+            Load More
+          </Button>
+        ) : null}
+
+        {!isLoading && !hasNextPage && (
+          <p className={css.catalogPagePlaceholder}>
+            Here are all the search results
+          </p>
+        )}
       </section>
     </Container>
   );

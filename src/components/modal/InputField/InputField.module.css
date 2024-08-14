@@ -21,7 +21,7 @@
   background-color: var(--soft-gray);
   padding: 18px;
   line-height: 1.25;
-  border: none
+  color: var(--midnight-navy);
 }
 
 .inputWrapper > span {

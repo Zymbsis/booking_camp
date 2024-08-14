@@ -33,11 +33,13 @@ const Form = ({ id }) => {
         className={css.form}
         onSubmit={handleSubmit(onSubmit)}>
         <InputField
+          label={' '}
           register={register}
           errors={errors}
           fieldName='name'
         />
         <InputField
+          label={' '}
           register={register}
           errors={errors}
           fieldName='email'

@@ -92,3 +92,17 @@
   padding: 16px 60px;
   border-color: var(--crimson-red);
 }
+
+.inputField {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(16, 24, 40, 0.60);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.form .inputField > input {
+  padding-left: 44px;
+}
