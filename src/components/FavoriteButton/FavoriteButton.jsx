@@ -6,20 +6,20 @@ import { Icon } from 'shared';
 import clsx from 'clsx';
 import css from './FavoriteButton.module.css';
 
-const FavoriteButton = ({ id }) => {
+const FavoriteButton = ({ camper }) => {
   const dispatch = useDispatch();
   const favoritesId = useSelector(selectFavoritesId);
 
   const [isChecked, setIsChecked] = useState(() =>
-    favoritesId.some((item) => item === id),
+    favoritesId.some((item) => item === camper.id),
   );
 
   const handleChange = ({ target: { checked } }) => {
     setIsChecked(checked);
     if (checked) {
-      dispatch(addToFavorite(id));
+      dispatch(addToFavorite(camper));
     } else {
-      dispatch(deleteFromFavorite(id));
+      dispatch(deleteFromFavorite(camper.id));
     }
   };
 

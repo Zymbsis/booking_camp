@@ -25,8 +25,8 @@ const CatalogPage = () => {
   };
 
   useEffect(() => {
-    if (page === null) {
-      dispatch(changePage(1));
+    if (page === 1 && !camperList.length) {
+      dispatch(getCampersList(params));
       return;
     }
     if (Math.ceil(camperList.length / params.limit) === page) return;

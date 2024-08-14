@@ -27,6 +27,9 @@
 
 .supportingText {
   color: var(--steel-gray);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .showMoreButton {

@@ -1,13 +1,10 @@
 .filterBar {
   width: 360px;
   height: 100%;
-  position: sticky;
-  top: 0;
 }
 
 .form {
   width: 100%;
-  padding-top: 80px;
   display: flex;
   flex-direction: column;
 }
@@ -70,6 +67,11 @@
   height: 28px;
 }
 
+.buttonWrapper {
+  display: flex;
+  gap: 20px;
+}
+
 .submitButton {
   padding: 16px 60px;
   background-color: var(--cherry-red);
@@ -78,4 +80,15 @@
 
 .submitButton:hover {
   background-color: var(--crimson-red);
+}
+
+.resetButton {
+  padding: 16px 60px;
+  border: 1px solid var(--cherry-red);
+  background-color: var(--total-white);
+}
+
+.resetButton:hover {
+  padding: 16px 60px;
+  border-color: var(--crimson-red);
 }

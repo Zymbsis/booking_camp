@@ -23,7 +23,12 @@ const camperSlice = createSlice({
       state.params = action.payload;
     },
     addToFavorite: (state, action) => {
-      state.favoriteIds.push(action.payload);
+      state.favoriteIds.push(action.payload.id);
+      state.favoriteCampers.push(action.payload);
+    },
+    resetParams: (state, action) => {
+      state.params = action.payload;
+      state.campers = [];
     },
     changePage: (state, action) => {
       state.params.page = action.payload;
@@ -58,5 +63,10 @@ const camperSlice = createSlice({
 });
 
 export const campersReducer = camperSlice.reducer;
-export const { deleteFromFavorite, changeParams, addToFavorite, changePage } =
-  camperSlice.actions;
+export const {
+  deleteFromFavorite,
+  changeParams,
+  addToFavorite,
+  resetParams,
+  changePage,
+} = camperSlice.actions;

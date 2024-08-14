@@ -7,7 +7,7 @@ import FeaturesList from '../FeaturesList/FeaturesList';
 import css from './CamperItem.module.css';
 
 const CamperItem = ({ item }) => {
-  const { name, price, id, rating, reviews, location, gallery } = item;
+  const { name, price, rating, reviews, location, gallery } = item;
   const { openModal } = useModal();
   const handleShowMore = () => {
     openModal(<CamperCard item={item} />);
@@ -37,7 +37,7 @@ const CamperItem = ({ item }) => {
             <CamperTitle className={css.title}>{name}</CamperTitle>
             <div className={css.priceWrapper}>
               <CamperPrice>{price}</CamperPrice>
-              <FavoriteButton id={id} />
+              <FavoriteButton camper={item} />
             </div>
           </div>
           <MetaInfo
@@ -46,9 +46,7 @@ const CamperItem = ({ item }) => {
             location={location}
           />
         </div>
-        <p className={css.supportingText}>
-          The pictures shown here are example vehicles of the respective.
-        </p>
+        <p className={css.supportingText}>{item.description}</p>
         <FeaturesList item={item} />
         <Button
           onClick={handleShowMore}

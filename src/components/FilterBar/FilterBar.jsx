@@ -1,19 +1,23 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeParams } from '@redux/campers/slice';
-import { getCampersList } from '@redux/campers/operations';
 import { selectParams } from '@redux/campers/selectors';
 import { Button, Icon } from 'shared';
 import css from './FilterBar.module.css';
+import { resetParams } from '../../redux/campers/slice';
 
 const FilterBar = () => {
   const dispatch = useDispatch();
   const params = useSelector(selectParams);
   const { register, handleSubmit, reset } = useForm({});
 
+  const handleReset = () => {
+    dispatch(resetParams({ ...params, form: '', page: 1 }));
+  };
+
   const onSubmit = (data) => {
+    if (!data.vehicleType) return;
     dispatch(changeParams({ ...params, form: data.vehicleType, page: 1 }));
-    dispatch(getCampersList({ ...params, form: data.vehicleType, page: 1 }));
     reset();
   };
 
@@ -55,11 +59,19 @@ const FilterBar = () => {
             <span> Alcove</span>
           </label>
         </div>
-        <Button
-          className={css.submitButton}
-          type='submit'>
-          Search
-        </Button>
+        <div className={css.buttonWrapper}>
+          <Button
+            className={css.submitButton}
+            type='submit'>
+            Search
+          </Button>
+          <Button
+            className={css.resetButton}
+            onClick={handleReset}
+            type='button'>
+            Reset
+          </Button>
+        </div>
       </form>
     </aside>
   );
