@@ -11,21 +11,29 @@ const Header = () => {
     <header className={css.header}>
       <Container>
         <nav className={css.navLinkContainer}>
-          <NavLink
-            className={getNavLinkClass}
-            to='/'>
-            Home Page
-          </NavLink>
-          <NavLink
-            className={getNavLinkClass}
-            to='/catalog'>
-            Catalog Page
-          </NavLink>
-          <NavLink
-            className={getNavLinkClass}
-            to='/favorites'>
-            Favorites Page
-          </NavLink>
+          <ul className={css.navLinkList}>
+            <li className={css.navLinkItem}>
+              <NavLink
+                className={getNavLinkClass}
+                to='/'>
+                Home Page
+              </NavLink>
+            </li>
+            <li className={css.navLinkItem}>
+              <NavLink
+                className={getNavLinkClass}
+                to='/catalog'>
+                Catalog Page
+              </NavLink>
+            </li>
+            <li className={css.navLinkItem}>
+              <NavLink
+                className={getNavLinkClass}
+                to='/favorites'>
+                Favorites Page
+              </NavLink>
+            </li>
+          </ul>
         </nav>
       </Container>
     </header>

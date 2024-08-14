@@ -9,11 +9,12 @@ import css from './FilterBar.module.css';
 const FilterBar = () => {
   const dispatch = useDispatch();
   const params = useSelector(selectParams);
-  const { register, handleSubmit } = useForm({});
+  const { register, handleSubmit, reset } = useForm({});
 
   const onSubmit = (data) => {
     dispatch(changeParams({ ...params, form: data.vehicleType, page: 1 }));
     dispatch(getCampersList({ ...params, form: data.vehicleType, page: 1 }));
+    reset();
   };
 
   return (
