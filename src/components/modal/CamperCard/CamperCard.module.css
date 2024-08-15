@@ -45,5 +45,39 @@
 
 .description {
   color: var(--steel-gray);
+}
+
+.descriptionWrapper {
+  max-height: 72px;
+  overflow: hidden;
+  position: relative;
   margin-bottom: 44px;
+}
+
+.descriptionWrapper > p {
+  transition: var(--transition);
+}
+
+.visibleTextWrapper {
+  max-height: 100%;
+  overflow: visible;
+}
+
+.descriptionWrapper > span {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10px;
+  bottom: 0;
+  right: 0;
+  background-color: var(--total-white);
+  padding-left: 5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--cherry-red);
+  transition: var(--transition);
+}
+
+.descriptionWrapper.visibleTextWrapper > span {
+  bottom: -26px;
+  left: 0;
 }
