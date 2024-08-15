@@ -18,7 +18,7 @@ const Calendar = ({ errors, setValue, register }) => {
   };
 
   return (
-    <>
+    <div className={css.wrapper}>
       <DatePicker
         className={clsx(css.picker, {
           [css.error]: errors.bookingDate,
@@ -41,12 +41,16 @@ const Calendar = ({ errors, setValue, register }) => {
         toggleCalendarOnIconClick
         customInput={
           <input
+            style={{ position: 'relative' }}
             type='text'
             {...register('bookingDate')}
           />
         }
       />
-    </>
+      {errors.bookingDate && (
+        <span className={css.errorMessage}>{errors.bookingDate.message}</span>
+      )}
+    </div>
   );
 };
 

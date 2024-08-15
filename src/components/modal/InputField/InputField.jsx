@@ -15,12 +15,13 @@ const InputField = ({
 }) => {
   return (
     <label
-      className={clsx(css.inputWrapper, {
+      className={clsx(css.label, {
         [css.error]: errors[fieldName],
         className,
       })}>
       {label ? label : capitalizeFirstLetter(fieldName)}
       <input
+        className={css.input}
         type={type}
         placeholder={
           placeholder ? placeholder : capitalizeFirstLetter(fieldName)

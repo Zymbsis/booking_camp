@@ -3,18 +3,32 @@
   padding: 18px !important;
   width: 400px;
   background-color: var(--soft-gray);
-  border: none;
   border-radius: 10px;
   font-size: 16px;
   line-height: 1.25;
 }
 
+.wrapper {
+  position: relative;
+}
+
 .icon {
   top: 18px;
   right: 18px;
+  z-index: 10;
   padding: 0 !important;
 }
 
 .error {
   border: 1px solid var(--cherry-red);
+}
+
+.errorMessage {
+  position: absolute;
+  font-size: 13px;
+  color: var(--crimson-red);
+  padding-left: 5px;
+  line-height: 1;
+  top: calc(100% + 2px);
+  left: 0;
 }

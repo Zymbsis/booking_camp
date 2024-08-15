@@ -1,20 +1,13 @@
-.inputWrapper {
+.label {
   transition: var(--transition);
+  position: relative;
 }
 
-.inputWrapper {
-  margin-bottom: 14px;
-}
-
-.inputWrapper.error {
-  margin-bottom: 8px;
-}
-
-.inputWrapper.error > input {
+.label.error > input {
   border: 1px solid var(--cherry-red);
 }
 
-.inputWrapper > input {
+.input {
   height: 56px;
   width: 100%;
   border-radius: 10px;
@@ -24,13 +17,16 @@
   color: var(--midnight-navy);
 }
 
-.inputWrapper > span {
-  font-size: 14px;
+.label > span {
+  font-size: 13px;
   color: var(--crimson-red);
   padding-left: 5px;
   line-height: 1;
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
 }
 
-.inputWrapper > input::placeholder {
+.input::placeholder {
   color: rgba(16, 24, 40, 0.60)
 }

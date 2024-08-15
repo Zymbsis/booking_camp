@@ -44,27 +44,21 @@ const Form = ({ id }) => {
           errors={errors}
           fieldName='email'
         />
-        <div
-          className={clsx(css.inputWrapper, {
-            [css.error]: errors.bookingDate,
-          })}>
-          <Calendar
-            errors={errors}
-            register={register}
-            setValue={setValue}
-          />
-          {errors.bookingDate && <span>{errors.bookingDate.message}</span>}
-        </div>
-        <div
+        <Calendar
+          errors={errors}
+          register={register}
+          setValue={setValue}
+        />
+        <label
           className={clsx(css.textareaWrapper, {
             [css.error]: errors.comment,
           })}>
           <textarea
+            className={css.textarea}
             placeholder='Comment'
-            {...register('comment')}
-          />
+            {...register('comment')}></textarea>
           {errors.comment && <span>{errors.comment.message}</span>}
-        </div>
+        </label>
         <Button
           className={css.submitBtn}
           type='submit'>

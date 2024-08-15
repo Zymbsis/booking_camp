@@ -1,12 +1,27 @@
 .reviews {
-  width: 430px;
+  width: 446px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  height: 532px;
+  overflow-y: auto;
+  padding-right: 16px;
 }
 
 .review {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.reviews::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+  position: relative;
+  right: 20px;
+}
+
+.reviews::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: #D9D9D9;
 }

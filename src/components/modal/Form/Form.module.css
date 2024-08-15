@@ -22,53 +22,40 @@
   width: 400px;
   display: flex;
   flex-direction: column;
+  gap: 14px;
 }
 
-.inputWrapper,
 .textareaWrapper {
+  position: relative;
   transition: var(--transition);
+  height: 114px;
+  margin-bottom: 10px;
 }
 
-.inputWrapper {
-  margin-bottom: 14px;
-}
-
-.textareaWrapper {
-  margin-bottom: 24px;
-}
-
-.inputWrapper.error {
-  margin-bottom: 8px;
-}
-
-.textareaWrapper.error {
-  margin-bottom: 18px;
-}
-
-.textareaWrapper.error > textarea {
-  border: 1px solid var(--cherry-red);
-}
-
-.textareaWrapper > textarea {
+.textarea {
   width: 100%;
   border-radius: 10px;
   background-color: var(--soft-gray);
   padding: 18px;
   line-height: 1.25;
-  border: none;
-  resize: none;
-  height: 114px;
+  height: 100%;
 }
 
-.inputWrapper > span,
-.textareaWrapper > span {
-  font-size: 14px;
+.textareaWrapper.error .textarea {
+  border: 1px solid var(--cherry-red);
+}
+
+.textareaWrapper.error > span {
+  position: absolute;
+  font-size: 13px;
   color: var(--crimson-red);
   padding-left: 5px;
   line-height: 1;
+  left: 0;
+  top: calc(100% + 2px);
 }
 
-.textareaWrapper > textarea::placeholder {
+.textarea::placeholder {
   color: rgba(16, 24, 40, 0.60)
 }
 

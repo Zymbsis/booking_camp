@@ -10,16 +10,18 @@ const Review = ({ review }) => {
     <>
       <div className={css.reviewer}>
         <span>{review.reviewer_name[0]}</span>
-        <p className={css.reviewerName}>{review.reviewer_name}</p>
-        <span>
-          {stars.map((item, index) => (
-            <Icon
-              key={index}
-              iconId='icon-star'
-              className={css[item]}
-            />
-          ))}
-        </span>
+        <p className={css.reviewerName}>
+          {review.reviewer_name}{' '}
+          <span>
+            {stars.map((item, index) => (
+              <Icon
+                key={index}
+                iconId='icon-star'
+                className={css[item]}
+              />
+            ))}
+          </span>
+        </p>
       </div>
       <p className={css.reviewText}>{review.comment}</p>
     </>
