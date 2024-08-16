@@ -34,7 +34,8 @@ const CampersList = () => {
   }, [params, dispatch, page]);
 
   useEffect(() => {
-    if (page === 1 || Math.ceil(camperList.length / 4) === page) return;
+    if (camperList.length && page === 1) return;
+    if (Math.ceil(camperList.length / 4) === page) return;
     dispatch(getCampersList({ page, ...params }));
   }, [dispatch, page, params, camperList]);
 
