@@ -9,11 +9,12 @@ import {
   selectCamperList,
 } from '@redux/campers/selectors';
 import { getCampersList } from '@redux/campers/operations';
-import css from './Pages.module.css';
 import { nextPage } from '../redux/campers/slice';
+import css from './Pages.module.css';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
+
   const isLoading = useSelector(selectIsLoading);
   const camperList = useSelector(selectCamperList);
   const params = useSelector(selectParams);
@@ -35,11 +36,12 @@ const CatalogPage = () => {
   }, [dispatch, page, params, camperList]);
 
   // useEffect(() => {
-  //   if (page <= 1) return;
-  //   const timer = setTimeout(() => {
-  //     window.scrollBy({ top: 500, behavior: 'smooth' });
-  //   }, 200);
-  //   return () => clearTimeout(timer);
+
+  // if (page <= 1) return;
+  // const timer = setTimeout(() => {
+  //   window.scrollBy({ top: 500, behavior: 'smooth' });
+  // }, 200);
+  // return () => clearTimeout(timer);
   // }, [page]);
 
   return (
@@ -59,7 +61,6 @@ const CatalogPage = () => {
             Load More
           </Button>
         ) : null}
-
         {!isLoading && !hasNextPage && (
           <p className={css.catalogPagePlaceholder}>
             Here are all the search results
