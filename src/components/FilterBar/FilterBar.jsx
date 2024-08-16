@@ -4,7 +4,6 @@ import { changeParams } from '@redux/campers/slice';
 import { selectParams } from '@redux/campers/selectors';
 import { Button, Icon } from 'shared';
 import css from './FilterBar.module.css';
-import { useState } from 'react';
 import clsx from 'clsx';
 import InputField from '../modal/InputField/InputField';
 
@@ -14,15 +13,14 @@ const FilterBar = () => {
   const {
     register,
     handleSubmit,
-    reset,
+    setValue,
     formState: { errors },
   } = useForm({});
-  // const [activateReset, setActivateReset] = useState(false);
-  // const handleActivateReset = () => {
-  //   setActivateReset(true);
-  // };
+
   const handleReset = () => {
     dispatch(changeParams({ ...params, page: 1, form: '', location: '' }));
+    setValue('vehicleType', '');
+    setValue('location', '');
   };
 
   const onSubmit = (data) => {
@@ -37,7 +35,6 @@ const FilterBar = () => {
         location: data.location,
       }),
     );
-    reset();
   };
 
   return (
@@ -56,10 +53,7 @@ const FilterBar = () => {
 
         <p className={css.vehicleTitle}>Vehicle type</p>
         <div className={css.radioWrapper}>
-          <label
-            className={css.label}
-            // onClick={handleActivateReset}
-          >
+          <label className={css.label}>
             <input
               hidden={true}
               type='radio'
@@ -69,10 +63,7 @@ const FilterBar = () => {
             <Icon iconId='icon-vanType' />
             <span> Van</span>
           </label>
-          <label
-            className={css.label}
-            // onClick={handleActivateReset}
-          >
+          <label className={css.label}>
             <input
               hidden={true}
               type='radio'
@@ -82,10 +73,7 @@ const FilterBar = () => {
             <Icon iconId='icon-fullyIntegratedType' />
             <span> Fully Integrated</span>
           </label>
-          <label
-            className={css.label}
-            // onClick={handleActivateReset}
-          >
+          <label className={css.label}>
             <input
               hidden={true}
               type='radio'
@@ -105,7 +93,7 @@ const FilterBar = () => {
           <Button
             className={clsx(css.resetButton, {})}
             onClick={handleReset}
-            // disabled={!activateReset}
+            disabled={!params.form && !params.location}
             type='button'>
             Reset
           </Button>

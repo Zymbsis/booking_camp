@@ -9,6 +9,7 @@ const camperSlice = createSlice({
     favoriteIds: [],
     params: { page: 1, form: '', location: '' },
     isLoading: false,
+    isError: false,
   },
   reducers: {
     deleteFromFavorite: (state, action) => {
@@ -45,6 +46,7 @@ const camperSlice = createSlice({
       })
       .addCase(getCampersList.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.isError = false;
         if (state.params.page === 1) {
           state.campers = action.payload;
         } else {
@@ -53,9 +55,11 @@ const camperSlice = createSlice({
       })
       .addCase(getCampersList.pending, (state) => {
         state.isLoading = true;
+        state.isError = false;
       })
       .addCase(getCampersList.rejected, (state) => {
         state.isLoading = false;
+        state.isError = true;
       }),
 });
 
