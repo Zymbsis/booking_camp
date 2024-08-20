@@ -9,90 +9,6 @@
   flex-direction: column;
 }
 
-.vehicleTitle {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 24px;
-}
-
-.radioWrapper {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding-top: 24px;
-  margin-bottom: 64px;
-  border-top: 1px solid rgba(16, 24, 40, 0.10);
-}
-
-.label {
-  padding-left: 24px;
-  padding-right: 24px;
-  height: 95px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  border-radius: 10px;
-  border: 1px solid rgba(16, 24, 40, 0.20);
-  cursor: pointer;
-}
-
-.label:has(input[type='radio']:checked) {
-  border-color: red;
-}
-
-.label:first-of-type {
-  gap: 9px;
-  width: 100px;
-}
-
-.label:nth-of-type(2) {
-  width: 128px;
-}
-
-.label:nth-of-type(3) {
-  width: 112px;
-}
-
-.label > span {
-  text-align: center;
-  font-weight: 500;
-  line-height: 1.25;
-}
-
-.label > svg {
-  width: 40px;
-  height: 28px;
-}
-
-.buttonWrapper {
-  display: flex;
-  gap: 20px;
-}
-
-.submitButton {
-  padding: 16px 60px;
-  background-color: var(--cherry-red);
-  color: var(--total-white);
-}
-
-.submitButton:hover {
-  background-color: var(--crimson-red);
-}
-
-.resetButton {
-  padding: 16px 60px;
-  border: 1px solid var(--cherry-red);
-  background-color: var(--total-white);
-}
-
-.resetButton:hover {
-  padding: 16px 60px;
-  border-color: var(--crimson-red);
-}
-
 .inputField {
   display: inline-flex;
   flex-direction: column;
@@ -105,4 +21,25 @@
 
 .form .inputField > input {
   padding-left: 44px;
+}
+
+.inputFieldIcon {
+  position: absolute;
+  width: 18px;
+  height: 20px;
+  bottom: 18px;
+  left: 18px;
+  stroke: rgba(16, 24, 40, 0.60);
+  transition: var(--transition);
+}
+
+.inputFieldIcon.activeInputFieldIcon {
+  stroke: var(--midnight-navy);
+}
+
+.filters {
+  color: var(--steel-gray);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 14px;
 }

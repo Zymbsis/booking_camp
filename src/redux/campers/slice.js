@@ -7,7 +7,7 @@ const camperSlice = createSlice({
     campers: [],
     favoriteCampers: [],
     favoriteIds: [],
-    params: { page: 1, form: '', location: '' },
+    params: { page: null, form: '', location: '' },
     isLoading: false,
     isError: false,
   },
@@ -28,8 +28,10 @@ const camperSlice = createSlice({
       state.favoriteIds.push(action.payload.id);
       state.favoriteCampers.push(action.payload);
     },
-    nextPage: (state) => {
-      state.params.page += 1;
+    nextPage: (state, action) => {
+      action.payload
+        ? (state.params.page = action.payload)
+        : (state.params.page += 1);
     },
   },
   extraReducers: (builder) =>
@@ -47,8 +49,10 @@ const camperSlice = createSlice({
       .addCase(getCampersList.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isError = false;
-        if (state.params.page === 1) {
+
+        if (state.params.page === null || state.params.page === 1) {
           state.campers = action.payload;
+          console.log(action.payload);
         } else {
           state.campers.push(...action.payload);
         }

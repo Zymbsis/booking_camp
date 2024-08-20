@@ -15,9 +15,8 @@ const InputField = ({
 }) => {
   return (
     <label
-      className={clsx(css.label, {
+      className={clsx(css.label, className, {
         [css.error]: errors[fieldName],
-        className,
       })}>
       {label ? label : capitalizeFirstLetter(fieldName)}
       <input

@@ -1,0 +1,63 @@
+.vehicleTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.radioWrapper {
+  display: flex;
+  gap: 10px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(16, 24, 40, 0.10);
+}
+
+.radioWrapper > label {
+  position: relative;
+  height: 95px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 24, 40, 0.20);
+  cursor: pointer;
+}
+
+.radioWrapper > label:nth-of-type(1) {
+  width: 100px;
+  gap: 9px
+}
+
+.radioWrapper > label:has(input[type='radio']:checked) {
+  border-color: red;
+}
+
+.radioWrapper > label:nth-of-type(2) {
+  width: 128px;
+  padding: 0 23px;
+  text-align: center;
+}
+
+.radioWrapper > label:nth-of-type(3) {
+  width: 112px;
+}
+
+.radioWrapper > label > input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.radioWrapper > label > svg {
+  width: 40px;
+  height: 28px;
+}
+
+.radioWrapper > label > span {
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.25;
+}

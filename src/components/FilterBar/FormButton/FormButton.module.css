@@ -1,0 +1,42 @@
+.buttonWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+}
+
+.buttonWrapper button {
+  width: 173px;
+  height: 56px;
+  border-radius: 200px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.05em;
+  transition: var(--transition);
+}
+
+.submitButton {
+  color: var(--total-white);
+  background-color: var(--cherry-red);
+}
+
+.resetButton {
+  opacity: 0;
+  color: var(--midnight-navy);
+  background-color: var(--total-white);
+  border: 1px solid rgba(71, 84, 103, 0.20);
+}
+
+.submitButton:hover {
+  background-color: var(--crimson-red);
+}
+
+.resetButton:hover {
+  border-color: var(--crimson-red);
+}
+
+.visible {
+  opacity: 1;
+}

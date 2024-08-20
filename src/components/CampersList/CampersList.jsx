@@ -28,20 +28,22 @@ const CampersList = () => {
   };
 
   useEffect(() => {
-    if (page === 1) {
-      dispatch(getCampersList({ page, ...params }));
+    if (page === null && !camperList.length) {
+      dispatch(getCampersList({ ...params, page: 1 }));
+      dispatch(nextPage(1));
     }
-  }, [params, dispatch, page]);
+  }, [page, camperList, params, dispatch]);
 
   useEffect(() => {
-    if (camperList.length && page === 1) return;
+    if (page === null || page === 1) return;
     if (Math.ceil(camperList.length / 4) === page) return;
-    dispatch(getCampersList({ page, ...params }));
-  }, [dispatch, page, params, camperList]);
+    dispatch(getCampersList({ ...params, page }));
+  }, [page, camperList, params, dispatch]);
 
   return (
     <>
       {!isLoading && camperList.length === 0 && <p>Nothing found</p>}
+
       {camperList.length > 0 && (
         <ul className={css.camperList}>
           {camperList.map((item) => (
@@ -53,6 +55,7 @@ const CampersList = () => {
           ))}
         </ul>
       )}
+
       <Loader visible={isLoading} />
 
       {!isLoading && isLoadMoreButtonVisible && (
@@ -62,6 +65,7 @@ const CampersList = () => {
           Load More
         </Button>
       )}
+
       {!isLoadMoreButtonVisible && camperList.length > 0 && !isLoading && (
         <p className={css.catalogPagePlaceholder}>
           Here are all the search results
