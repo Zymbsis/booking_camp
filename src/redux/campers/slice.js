@@ -52,7 +52,6 @@ const camperSlice = createSlice({
 
         if (state.params.page === null || state.params.page === 1) {
           state.campers = action.payload;
-          console.log(action.payload);
         } else {
           state.campers.push(...action.payload);
         }

@@ -5,7 +5,7 @@ import { selectParams } from '@redux/campers/selectors';
 import { Icon } from 'shared';
 import css from './FilterBar.module.css';
 import clsx from 'clsx';
-import InputField from '../modal/InputField/InputField';
+import InputField from '../Modal/InputField/InputField';
 import RadioFieldset from './RadioFieldset/RadioFieldset';
 import FormButton from './FormButton/FormButton';
 
