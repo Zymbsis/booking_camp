@@ -1,7 +1,7 @@
 import { useModal } from 'helpers';
 import { ImageCard, CamperTitle, CamperPrice, Button } from 'shared';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
-import CamperCard from '../Modal/CamperCard/CamperCard';
+import CamperCard from '../ModalWindow/CamperCard/CamperCard';
 import MetaInfo from '../MetaInfo/MetaInfo';
 import FeaturesList from '../FeaturesList/FeaturesList';
 import css from './CamperItem.module.css';
