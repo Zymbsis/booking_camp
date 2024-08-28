@@ -1,0 +1,53 @@
+.reviewer {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.reviewer > span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  border-radius: 50px;
+  color: var(--cherry-red);
+  background-color: #F2F4F7;
+}
+
+.reviewerName {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+}
+
+.reviewerName > span {
+  display: flex;
+  gap: 4px;
+}
+
+.reviewerName > span > svg {
+  width: 16px;
+  height: 16px;
+}
+
+.reviewerName > span > .gray {
+  stroke: #F2F4F7;
+  fill: #F2F4F7;
+}
+
+.reviewerName > span > .yellow {
+  stroke: #FFC531;
+  fill: #FFC531;
+}
+
+.reviewText {
+  color: var(--steel-gray);
+}

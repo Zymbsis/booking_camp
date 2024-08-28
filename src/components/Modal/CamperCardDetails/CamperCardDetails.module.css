@@ -1,0 +1,40 @@
+.overviewBtnWrapper {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.20);
+}
+
+.overviewBtn {
+  position: relative;
+  height: 48px;
+  display: flex;
+  align-items: flex-start;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  background-color: var(--total-white);
+}
+
+.overviewBtn::after {
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  content: '';
+  background-color: transparent;
+  width: 0;
+  height: 4px;
+  transition: var(--transition);
+}
+
+.overviewBtn.activeOverviewBtn::after {
+  background-color: var(--cherry-red);
+  width: 100%;
+  left: 0;
+}
+
+.detailsContainer {
+  display: flex;
+  padding-top: 44px;
+  gap: 8px;
+}
